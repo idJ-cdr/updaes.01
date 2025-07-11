@@ -16,7 +16,7 @@
     }
 
     header {
-      background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center  / cover no-repeat;
+      background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
       color: white;
       text-align: center;
       padding: 30px 20px;
@@ -71,6 +71,37 @@
       margin-top: 40px;
     }
 
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .logo {
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .email-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .email-button:hover {
+      background-color: #0056b3;
+    }
+
     @media (max-width: 600px) {
       nav a, .lang-btn {
         font-size: 14px;
@@ -83,13 +114,28 @@
       const isSpanish = document.documentElement.lang === "es";
       document.documentElement.lang = isSpanish ? "en" : "es";
 
-      document.getElementById('nav-welcome').textContent = isSpanish ? "Welcome" : "Bienvenida";
-      document.getElementById('nav-pastor').textContent = isSpanish ? "Pastor" : "Pastor";
-      document.getElementById('nav-contact').textContent = isSpanish ? "Contact" : "Contacto";
+      // Change static text
       document.getElementById('slogan').textContent = isSpanish
         ? '"A place of hope and restoration"'
         : '"Un lugar de esperanza y restauración"';
-      document.querySelector('.lang-btn').textContent = isSpanish ? "Español" : "English";
+
+      document.getElementById('welcome-heading').textContent = isSpanish ? 'Welcome!' : '¡Bienvenido!';
+      document.getElementById('msg-1').textContent = isSpanish
+        ? 'Thank you for visiting IDJ Casa de Refugio. We are currently undergoing a change.'
+        : 'Gracias por visitar IDJ Casa de Refugio. Estamos en proceso de cambio.';
+      document.getElementById('msg-2').textContent = isSpanish
+        ? 'The transition may take until 07/18/25. Our new site will be available at:'
+        : 'La transición puede tardar hasta 07/18/25. Nuestro nuevo sitio estará disponible en:';
+      document.getElementById('msg-3').textContent = isSpanish
+        ? 'Thank you for your understanding.'
+        : 'Gracias por su comprensión.';
+      document.getElementById('msg-4').textContent = isSpanish
+        ? 'Tech Team'
+        : 'Equipo Técnico';
+      document.getElementById('email-button').textContent = isSpanish
+        ? 'Contact Tech Team'
+        : 'Contactar al equipo técnico';
+      document.querySelector('.lang-btn').textContent = isSpanish ? "English" : "Español";
     }
   </script>
 </head>
@@ -100,72 +146,25 @@
     <p id="slogan">"Un lugar de esperanza y restauración"</p>
   </header>
 
-  <section class="section">
-    <h2>¡Bienvenido!</h2>
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDJ Casa de Refugio - Cambio de Dominio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 50px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-        .logo {
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #d9534f;
-        }
-        p {
-            font-size: 18px;
-        }
-        .email-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .email-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <img src="https://i.postimg.cc/vHF28pwT/idjcdrlogo-1.png" alt="Logo IDJ Casa de Refugio" class="logo">
-        <p>Gracias por visitar <strong>IDJ Casa de Refugio</strong>. Estamos en proceso de cambio.</p>
-        <p>La transición puede tardar hasta <strong>07/18/25</strong>. Nuestro nuevo sitio estará disponible en: <strong>idjcasaderefugio.org</strong></p>
-        <p>Gracias por su comprensión</p>
-        <p><strong>Tech Team</strong></p>
-        <a href="mailto:idjcdr+techteam@gmail.com" class="email-button">Contactar al equipo técnico</a>
-    </div>
-</body>
-</html>
+  <nav>
+    <button class="lang-btn" onclick="toggleLanguage()">English</button>
+  </nav>
 
+  <section class="section">
+    <h2 id="welcome-heading">¡Bienvenido!</h2>
+    <div class="container">
+      <img src="https://i.postimg.cc/vHF28pwT/idjcdrlogo-1.png" alt="Logo IDJ Casa de Refugio" class="logo">
+      <p id="msg-1">Gracias por visitar IDJ Casa de Refugio. Estamos en proceso de cambio.</p>
+      <p id="msg-2">La transición puede tardar hasta 07/18/25. Nuestro nuevo sitio estará disponible en:</p>
+      <p><strong>idjcasaderefugio.org</strong></p>
+      <p id="msg-3">Gracias por su comprensión</p>
+      <p><strong id="msg-4">Tech Team</strong></p>
+      <a href="mailto:idjcdr+techteam@gmail.com" class="email-button" id="email-button">Contactar al equipo técnico</a>
+    </div>
   </section>
 
-<footer>
-  <p>© 2024 IDJ Casa de Refugio | <a href="inc.html">Privacy Policy</a></p>
-</footer>
-
+  <footer>
+    <p>© 2024 IDJ Casa de Refugio | <a href="inc.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
